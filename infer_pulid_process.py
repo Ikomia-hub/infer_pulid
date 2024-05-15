@@ -171,6 +171,14 @@ class InferPulid(core.CWorkflowTask):
 
         # Collect supplementary images from additional inputs
         supp_images = [self.get_input(i).get_image() for i in range(1, 4) if self.get_input(i).is_data_available()]
+        
+        # Edit output size
+        if param.width % 8 != 0:
+            param.width = param.width // 8 * 8
+            print("Updating width to {} to be a multiple of 8".format(param.width))
+        if param.height % 8 != 0:
+            param.height = param.height // 8 * 8
+            print("Updating height to {} to be a multiple of 8".format(param.height))
 
         # Execute inference with the main and supplementary images
         results = self.inference(image, supp_images if supp_images else None)            
@@ -221,7 +229,7 @@ class InferPulidFactory(dataprocess.CTaskFactory):
         # Python version
         self.info.min_python_version = "3.10.0"
         # Keywords used for search
-        self.info.keywords = "Stable Diffusion, Hugging Face,text-to-image, Generative, ID Customization"
+        self.info.keywords = "Stable Diffusion, Hugging Face, text-to-image, Generative, ID Customization"
         self.info.algo_type = core.AlgoType.INFER
         self.info.algo_tasks = "IMAGE_GENERATION"
 
