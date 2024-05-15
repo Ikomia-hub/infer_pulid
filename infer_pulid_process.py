@@ -184,16 +184,14 @@ class InferPulid(core.CWorkflowTask):
         results = self.inference(image, supp_images if supp_images else None)            
 
         # Set image output
-        if len(results) > 1:
-            for i, image in enumerate(results):
+        for _ in self.get_outputs():
+            self.remove_output()
+        # Set image output  
+        for i, image in enumerate(results):
                 self.add_output(dataprocess.CImageIO())
                 img = np.array(image)
                 output = self.get_output(i)
                 output.set_image(img)
-        else:
-            image = np.array(results[0])
-            output_img = self.get_output(0)
-            output_img.set_image(image)
 
         # Step progress bar:
         self.emit_step_progress()
