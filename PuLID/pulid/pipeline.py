@@ -87,13 +87,19 @@ class PuLIDPipeline:
         self.eva_transform_mean = eva_transform_mean
         self.eva_transform_std = eva_transform_std
         # antelopev2
-        snapshot_download('DIAMONIK7777/antelopev2', local_dir=os.path.join(self.weight_dir, 'antelopev2'), cache_dir=self.weight_dir)
+        snapshot_download('DIAMONIK7777/antelopev2', local_dir=os.path.join(self.weight_dir, 'models', 'antelopev2'), cache_dir=os.path.join(self.weight_dir, 'models', 'antelopev2'))
         # snapshot_download('DIAMONIK7777/antelopev2', local_dir='models/antelopev2')
+
+        # self.app = FaceAnalysis(
+        #     name='antelopev2', root='.', providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
+        # )
         self.app = FaceAnalysis(
-            name='antelopev2', root='.', providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
+            name='antelopev2', root=os.path.join(self.weight_dir), providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
         )
         self.app.prepare(ctx_id=0, det_size=(640, 640))
-        self.handler_ante = insightface.model_zoo.get_model('models/antelopev2/glintr100.onnx')
+        
+        # self.handler_ante = insightface.model_zoo.get_model('models/antelopev2/glintr100.onnx')
+        self.handler_ante = insightface.model_zoo.get_model(os.path.join(self.weight_dir, 'models', 'antelopev2','glintr100.onnx'))
         self.handler_ante.prepare(ctx_id=0)
 
         gc.collect()
