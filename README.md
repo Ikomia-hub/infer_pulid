@@ -21,6 +21,8 @@
 
 Run PuLID, a tuning-free ID customization approach. It's is an ip-adapter alike method to restore facial identity. It uses insightface embedding, CLIP embedding and SDXL-Lightning for inferences in 4 steps. 
 
+*Note: This algorithm is using about 19 GB of VRAM*
+
 
 ![output_1](https://raw.githubusercontent.com/Ikomia-hub/infer_pulid/main/images/output_1.jpg)
 
