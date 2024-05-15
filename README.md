@@ -162,4 +162,4 @@ for output in algo.get_outputs():
 
 ## :fast_forward: Troubleshooting 
 
-If you the installation of Insightface doesn't go smoothly on Windows. Please follow this [guide](https://github.com/Gourieff/sd-webui-reactor#insightfacebuild).
+If you encounter issues while installing Insightface on Windows, please follow this [guide](https://github.com/Gourieff/sd-webui-reactor#insightfacebuild).
