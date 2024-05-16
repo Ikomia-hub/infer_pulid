@@ -15,29 +15,4 @@ facexlib
 insightface
 onnxruntime-gpu
 accelerate
-
-
-
-
-
-#torch==2.0.1
-#torchvision==0.15.2
-
-#--find-links https://download.pytorch.org/whl/torch_stable.html
-#torch==2.1.2+cu121
-#torchvision==0.16.2+cu121
-
-#diffusers==0.25.0
-#transformers==4.36.2
-#gradio>=4.0.0
-#opencv-python
-#httpx==0.23.3
-#timm
-#einops
-#ftfy
-#basicsr
-#facexlib
-#insightface
-#onnxruntime-gpu
-#accelerate
-#spaces==0.19.4
+xformers==0.0.16; python_version == "3.10"
