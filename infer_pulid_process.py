@@ -185,7 +185,7 @@ class InferPulid(core.CWorkflowTask):
 
         # Set image output
         for _ in self.get_outputs():
-            self.remove_output()
+            self.remove_output(0)
         # Set image output  
         for i, image in enumerate(results):
                 self.add_output(dataprocess.CImageIO())
