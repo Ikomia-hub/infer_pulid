@@ -213,7 +213,7 @@ class InferPulidFactory(dataprocess.CTaskFactory):
         # relative path -> as displayed in Ikomia Studio algorithm tree
         self.info.path = "Plugins/Python/Diffusion"
         self.info.version = "1.0.0"
-        # self.info.icon_path = "your path to a specific icon"
+        self.info.icon_path = "images/icon.png"
         self.info.authors = "Guo, Zinan and Wu, Yanze and Chen, Zhuowei and Chen, Lang and He, Qian"
         self.info.article = "PuLID: Pure and Lightning ID Customization via Contrastive Alignment"
         self.info.journal = "arXiv preprint"
